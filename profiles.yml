@@ -20,6 +20,6 @@ vhol_demo:
       password: "{{ env_var('SNOWFLAKE_PASSWORD') | as_text }}"
       role: DATAFOLD_ROLE
       database: DATAFOLD_DEMO
-      warehouse: TEST_DATAFOLD_TMP
-      schema: TEST
+      warehouse: TRANSFORMING
+      schema: TEST_DATAFOLD_TMP
       threads: 24
