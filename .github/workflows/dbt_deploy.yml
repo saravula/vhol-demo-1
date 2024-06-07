@@ -27,11 +27,11 @@ jobs:
       # TODO: update your GitHub secrets to include AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY
       - name: Grab production manifest from S3
         run: |
-          aws s3 cp s3://vhol-datafold-dbt-prod-manifest/manifest.json ./manifest.json
+          aws s3 cp s3://vhold-prod-manifest-demo-saravula/manifest.json ./manifest.json
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          AWS_REGION: us-west-2
+          AWS_REGION: us-east-1
 
       - name: dbt build
         run: dbt build --target prod --select state:modified+ --defer --state ./ --exclude config.materialized:snapshot --full-refresh --profiles-dir ./
@@ -46,7 +46,7 @@ jobs:
       - name: submit artifacts to datafold
         run: |
           set -ex
-          datafold dbt upload --ci-config-id 345 --run-type ${DATAFOLD_RUN_TYPE} --commit-sha ${GIT_SHA}
+          datafold dbt upload --ci-config-id 400 --run-type ${DATAFOLD_RUN_TYPE} --commit-sha ${GIT_SHA}
         env: # TODO: update your GitHub secrets to include DATAFOLD_APIKEY
           DATAFOLD_APIKEY: ${{ secrets.DATAFOLD_APIKEY }}
           DATAFOLD_RUN_TYPE: "${{ 'production' }}"
@@ -57,8 +57,8 @@ jobs:
       # TODO: update your GitHub secrets to include AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY
       - name: Upload manifest to S3
         run: |
-          aws s3 cp target/manifest.json s3://vhol-datafold-dbt-prod-manifest/manifest.json
+          aws s3 cp target/manifest.json s3://vhold-prod-manifest-demo-saravula/manifest.json
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          AWS_REGION: us-west-2
+          AWS_REGION: us-east-1

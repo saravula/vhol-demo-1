@@ -27,9 +27,9 @@ clean-targets:         # directories to be removed by `dbt clean`
 # TODO: update the following to your Snowflake account and Datafold Snowflake datasource_id ID
 vars:
   data_diff:
-    prod_database: DEMO
-    prod_schema: CORE
-    datasource_id: 4932
+    prod_database: DATAFOLD_DEMO
+    prod_schema: PROD
+    datasource_id: 7980
 
 # Configuring models
 # Full documentation: https://docs.getdbt.com/docs/configuring-models
