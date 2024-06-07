@@ -10,7 +10,8 @@ vhol_demo:
       role: DATAFOLD_ROLE
       database: DATAFOLD_DEMO
       warehouse: TRANSFORMING
-      schema: "{{ env_var('SNOWFLAKE_SCHEMA') | as_text }}"
+     # schema: "{{ env_var('SNOWFLAKE_SCHEMA') | as_text }}"
+     schema: TEST 
       threads: 24
 
     prod:
