@@ -11,7 +11,7 @@ vhol_demo:
       database: DATAFOLD_DEMO
       warehouse: TRANSFORMING
      # schema: "{{ env_var('SNOWFLAKE_SCHEMA') | as_text }}"
-      schema: PRODUCTION 
+      schema: TEST
       threads: 24
 
     prod:
@@ -22,5 +22,5 @@ vhol_demo:
       role: DATAFOLD_ROLE
       database: DATAFOLD_DEMO
       warehouse: TRANSFORMING
-      schema: TEST_DATAFOLD_TMP
+      schema: PROD
       threads: 24
