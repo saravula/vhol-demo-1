@@ -22,5 +22,5 @@ vhol_demo:
       role: DATAFOLD_ROLE
       database: DATAFOLD_DEMO
       warehouse: TRANSFORMING
-      schema: PRODUCTION
+      schema: PROD
       threads: 24
